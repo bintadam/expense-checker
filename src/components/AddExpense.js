@@ -1,10 +1,7 @@
 import { useState } from "react";
 
-function AddEXpense(){
+function AddExpense({onAdd, date, setDate, amount, setAmount, description, setDescription}){
     const [date, setDate] = useState('')
-
-    const [amount, setAmount] = useState('')
-    const [description, setDescription] = useState('')
 
     const getToday = () => {
         const today = new Date();
@@ -17,15 +14,17 @@ function AddEXpense(){
 
     const handleClick = (e) => {
         e.preventDefault()
-        if(!amount && !description){
-            return "fields cannot be empty"
-        }else if(!amount){
-            return "Amount field cannot be empty" 
-        } else if(!description) {
-            return "Description field cannot be empty"
-        }else if(!date){
-            setDate(getToday());
-        }
+
+        onAdd({
+            id: Date.now(),
+            amount,
+            description,
+            date: date || getToday()
+          });
+      
+          setDate('');
+          setAmount('');
+          setDescription('');
     }
 
     return (
@@ -41,4 +40,4 @@ function AddEXpense(){
     )
 }
 
-export default AddEXpense;
+export default AddExpense;
