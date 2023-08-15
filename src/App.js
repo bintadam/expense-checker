@@ -10,6 +10,13 @@ const expenses =[
 ]
 
 function App() {
+  const [date, setDate] = useState('') 
+  const [expense, setExpense] = useState('')
+
+  const addExpense = () =< {
+    const newExpense = {id.Date.now(), amount, date()}
+    setExpense([...expense, newExpense])
+  }
   return (
     <div className="">
       <h1 className="text-center font-bold text-2xl text-blue-800 pt-20">TRACK YOUR EXPENSE</h1>
