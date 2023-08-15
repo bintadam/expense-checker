@@ -1,10 +1,11 @@
-function Expense(){
+function Expense({expense}){
     return (
-        <div>
-            <li>
-                
-            </li>
-        </div>
+        <li>
+            <p>{expense.description}</p>
+            <p>{expense.amount}</p>
+            <p>{expense.date}</p>        
+        </li>
+        
     )
 }
 
