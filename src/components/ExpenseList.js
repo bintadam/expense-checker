@@ -2,9 +2,7 @@ import Expense from "./Expense";
 import { useState } from "react";
 
 function ExpenseList({expenses = []}){
-    const now = new Date()
-    const year = now.getFullYear()
-    const [selectedYear, setSelectedYear] = useState(year)
+    const [selectedYear, setSelectedYear] = useState('')
 
 
     function groupExpensesByYear(expenses){
@@ -26,16 +24,12 @@ function ExpenseList({expenses = []}){
     return (
         <div>
             <h2 className="text-center font-bold text-xl">Expense List</h2>
-            {Object.entries(groupedExpenses).sort((a, b) => b[0] - a[0]).map(([year, expensesForYear]) => (
-                <div key={year} className="mt-4">
-                    <h3 className="text-center font-semibold text-lg">{year}</h3>
-                    <ul>
-                        {expensesForYear.map((expense) => (
-                            <Expense key={expense.id} expense={expense}/>
-                            ))}
-                    </ul>
-                </div>
-            ))}
+            <select value={selectedYear} onChange={(e)=> setSelectedYear(e.target.value)}>
+                { yearsAvailable.map( year => (
+                    <option key={year} value={year}>{year}</option>
+                ))}
+            </select>
+            {}
         </div>
     )
 };
