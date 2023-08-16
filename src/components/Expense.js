@@ -1,12 +1,15 @@
 function Expense({expense}){
 
     return (
-        <li>
-            <p>{expense.description}</p>
-            <p>{expense.amount}</p>
-            <p>{expense.date}</p>        
-        </li>
-        
+        <div>
+            <div className="bg-blue-300 my-2 p-4 rounded-md w-2/3">
+                <ul>
+                    <li className="font-thin text-sm ">{expense.date}</li>  
+                    <li>{expense.description}</li>
+                    <li>{expense.amount}</li>   
+                </ul>
+            </div>
+        </div>  
     )
 }
 

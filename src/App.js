@@ -1,7 +1,6 @@
 import {useState }from "react";
 import AddExpense from "./components/AddExpense";
 import ExpenseList from "./components/ExpenseList";
-import ExpenseChart from "./components/ExpenseChart";
 
 const initialExpenses =[
   {id:1, Amount:145, description:"ipods", date:"2021-09-04"},
@@ -9,6 +8,7 @@ const initialExpenses =[
   {id:7, Amount:98, description:"printer", date:"2022-02-21"},
   {id:2, Amount:105, description:"trip", date:"2022-07-09"},
   {id:8, Amount:125, description:"dining outside", date:"2022-11-16"},
+  {id:9, Amount:35, description:"gym membership", date:"2023-05-16"},
 ]
 
 
@@ -33,7 +33,6 @@ function App() {
           </div>
           <div>
             <ExpenseList expenses={initialExpenses}/>
-            <ExpenseChart/>
           </div>
         </div>
     </div>

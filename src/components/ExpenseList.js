@@ -1,5 +1,6 @@
 import Expense from "./Expense";
 import { useState } from "react";
+import ExpenseChart from "./ExpenseChart"
 
 function ExpenseList({expenses = []}){
     const [selectedYear, setSelectedYear] = useState('')
@@ -23,13 +24,22 @@ function ExpenseList({expenses = []}){
 
     return (
         <div>
-            <h2 className="text-center font-bold text-xl">Expense List</h2>
             <select value={selectedYear} onChange={(e)=> setSelectedYear(e.target.value)}>
                 { yearsAvailable.map( year => (
-                    <option key={year} value={year}>{year}</option>
+                    <option className="bg-blue-400 text-white" key={year} value={year}>{year}</option>
                 ))}
             </select>
-            {}
+            <ExpenseChart/>
+            {selectedYear && groupedExpenses[selectedYear] && (
+                <div>
+                    <h6>EXPENSE LIST</h6>
+                    <ul>
+                        {groupedExpenses[selectedYear].map((expense) => (
+                            <Expense key={expense.id} expense={expense}/>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     )
 };
