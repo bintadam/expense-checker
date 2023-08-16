@@ -23,10 +23,10 @@ function ExpenseList({expenses = []}){
     const yearsAvailable = Object.keys(groupedExpenses).sort((a, b) => b-a);
 
     return (
-        <div>
-            <select value={selectedYear} onChange={(e)=> setSelectedYear(e.target.value)}>
+        <div className="pr-32">
+            <select className="p-2 bg-blue-500 text-white font-medium w-32 focus:outline-none " value={selectedYear} onChange={(e)=> setSelectedYear(e.target.value)}>
                 { yearsAvailable.map( year => (
-                    <option className="bg-blue-400 text-white" key={year} value={year}>{year}</option>
+                    <option  key={year} value={year}>{year}</option>
                 ))}
             </select>
             <ExpenseChart/>

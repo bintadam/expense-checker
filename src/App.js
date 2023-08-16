@@ -23,16 +23,18 @@ function App() {
   }
   return (
     <div className="h-screen">
-      <h1 className="text-center font-bold text-2xl text-blue-800 pt-16">TRACK YOUR EXPENSE</h1>
-      <div className="grid grid-cols-2 gap-10">
-        <div className="pt-8 px-12">
-          <AddExpense onAdd={addExpense}
-            date={date} setDate={setDate}
-            amount={amount} setAmount={setAmount}
-            description={description} setDescription={setDescription}/>
-          </div>
+      <div className="bg-green-200 m-16 rounded-lg ">
+        <h1 className="text-center font-bold text-2xl text-blue-800 pt-8">TRACK YOUR EXPENSE</h1>
+        <div className="grid grid-cols-2 pt-12 px-32">
           <div>
-            <ExpenseList expenses={initialExpenses}/>
+            <AddExpense onAdd={addExpense}
+              date={date} setDate={setDate}
+              amount={amount} setAmount={setAmount}
+              description={description} setDescription={setDescription}/>
+            </div>
+            <div>
+              <ExpenseList expenses={initialExpenses}/>
+            </div>
           </div>
         </div>
     </div>
