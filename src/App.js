@@ -1,6 +1,7 @@
 import {useState }from "react";
 import AddExpense from "./components/AddExpense";
 import ExpenseList from "./components/ExpenseList";
+import ExpenseChart from "./components/ExpenseChart";
 
 const initialExpenses =[
   {id:1, Amount:145, description:"ipods", date:"2021-09-04"},
@@ -12,21 +13,28 @@ const initialExpenses =[
 
 function App() {
   const [date, setDate] = useState('') 
-  const [expense, setExpense] = useState('')
+  const [expenses, setExpense] = useState('')
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
 
   const addExpense = (newExpense) => {
-    setExpense([...expense, newExpense])
+    setExpense([...expenses, newExpense])
   }
   return (
     <div className="">
       <h1 className="text-center font-bold text-2xl text-blue-800 pt-20">TRACK YOUR EXPENSE</h1>
-      <AddExpense onAdd={addExpense}
-        date={date} setDate={setDate}
-        amount={amount} setAmount={setAmount}
-        description={description} setDescription={setDescription}/>
-      <ExpenseList expenses={initialExpenses}/>
+      <div className="grid grid-cols-2 gap-10">
+        <div className="pt-8 px-12">
+          <AddExpense onAdd={addExpense}
+            date={date} setDate={setDate}
+            amount={amount} setAmount={setAmount}
+            description={description} setDescription={setDescription}/>
+          </div>
+          <div>
+            <ExpenseList expenses={expenses}/>
+            <ExpenseChart/>
+          </div>
+        </div>
     </div>
   );
 }

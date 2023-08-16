@@ -1,7 +1,19 @@
 import Expense from "./Expense";
 
-function ExpenseList({expenses}){
-    const groupedExpenses = groupExpensesByYear()
+function ExpenseList({expenses = []}){
+    function groupExpensesByYear(expenses){
+        return expenses.reduce((acc, expense) => {
+            const year = new Date(expense.date).getFullYear();
+            if(!acc[year]){
+                acc[year] =[]
+            }
+            acc[year].push(expense);
+            return acc
+
+        }, {});
+    }
+
+    const groupedExpenses = expenses ? groupExpensesByYear(expenses) : {};
     return (
         <div>
             <h2 className="text-center font-bold text-xl">Expense List</h2>
