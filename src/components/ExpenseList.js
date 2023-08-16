@@ -1,6 +1,12 @@
 import Expense from "./Expense";
+import { useState } from "react";
 
 function ExpenseList({expenses = []}){
+    const now = new Date()
+    const year = now.getFullYear()
+    const [selectedYear, setSelectedYear] = useState(year)
+
+
     function groupExpensesByYear(expenses){
         return expenses.reduce((acc, expense) => {
             const year = new Date(expense.date).getFullYear();
@@ -13,7 +19,10 @@ function ExpenseList({expenses = []}){
         }, {});
     }
 
-    const groupedExpenses = expenses ? groupExpensesByYear(expenses) : {};
+    const groupedExpenses = groupExpensesByYear(expenses)
+
+    const yearsAvailable = Object.keys(groupedExpenses).sort((a, b) => b-a);
+
     return (
         <div>
             <h2 className="text-center font-bold text-xl">Expense List</h2>
