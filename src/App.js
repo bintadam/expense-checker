@@ -22,21 +22,13 @@ function App() {
     setExpense([...expenses, newExpense])
   }
   return (
-    <div className="h-screen">
-      <div className="bg-green-200 m-16 rounded-lg ">
-        <h1 className="text-center font-bold text-2xl text-blue-800 pt-8">TRACK YOUR EXPENSE</h1>
-        <div className="grid grid-cols-2 pt-12 px-32">
-          <div>
-            <AddExpense onAdd={addExpense}
-              date={date} setDate={setDate}
-              amount={amount} setAmount={setAmount}
-              description={description} setDescription={setDescription}/>
-            </div>
-            <div>
-              <ExpenseList expenses={initialExpenses}/>
-            </div>
-          </div>
-        </div>
+    <div className="grid place-items-center h-screen">
+      <h1 className="font-bold text-2xl text-blue-800">TRACK YOUR EXPENSE</h1>
+      <AddExpense onAdd={addExpense}
+        date={date} setDate={setDate}
+        amount={amount} setAmount={setAmount}
+        description={description} setDescription={setDescription}/>
+      <ExpenseList expenses={initialExpenses}/>
     </div>
   );
 }

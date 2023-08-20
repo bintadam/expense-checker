@@ -1,6 +1,6 @@
 import Expense from "./Expense";
 import { useState } from "react";
-import ExpenseChart from "./ExpenseChart"
+
 
 function ExpenseList({expenses = []}){
     const [selectedYear, setSelectedYear] = useState('')
@@ -29,7 +29,7 @@ function ExpenseList({expenses = []}){
                     <option  key={year} value={year}>{year}</option>
                 ))}
             </select>
-            <ExpenseChart initialExpenses={expenses}/>
+
             {selectedYear && groupedExpenses[selectedYear] && (
                 <div>
                     <h6>EXPENSE LIST</h6>
