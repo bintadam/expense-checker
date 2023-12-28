@@ -35,8 +35,8 @@ function ExpenseList({expenses = []}){
                 <div>
                     <h6 className="font-semibold m-1">EXPENSE LIST</h6>
                     <ul>
-                        {groupedExpenses[selectedYear].map((expense) => (
-                            <Expense key={expense.id} expense={expense}/>
+                        {groupedExpenses[selectedYear].map((expense, index) => (
+                            <Expense key={index} expense={expense}/>
                         ))}
                     </ul>
                 </div>
