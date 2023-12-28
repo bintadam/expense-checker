@@ -1,13 +1,13 @@
 function Expense({expense}){
 
     return (
-        <div>
-            <div className="bg-blue-400 my-2 p-4 rounded-md flex ">
+        <div className="">
+            <div className="bg-sky-700 rounded-md p-2 mb-2">
                 <ul className="text-white">
-                    <li className="font-thin text-sm bg-blue-200 py-2 block rounded-lg">{expense.date}</li>
-                    <div className="grid grid-cols-2">
+                    <li className="font-thin text-sm py-2 block">{expense.date}</li>
+                    <div className="flex justify-between gap-20">
                         <li>{expense.description}</li>
-                        <li className="">{expense.Amount}$</li>
+                        <li >${expense.amount}</li>
                     </div>     
                 </ul>
             </div>
@@ -15,4 +15,4 @@ function Expense({expense}){
     )
 }
 
-export default Expense;
+export default Expense; 
