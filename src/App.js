@@ -43,9 +43,9 @@ function App() {
           </div>
         )}
         {isMobile && (
-                  <div className="h-screen place-content-center mt-20 ml-96">
-                  <div className="rounded bg-sky-300 px-12 py-8 w-2/3">
-                    <h1 className="text-center font-bold text-2xl text-white">TRACK YOUR EXPENSE</h1>
+                  <div className="bg-sky-300 h-screen">
+                  <div className="mx-4">
+                    <h1 className="text-center font-bold text-lg text-white">TRACK YOUR EXPENSE</h1>
                     <AddExpense
                       onAdd={addExpense}
                       date={date} setDate={setDate}
